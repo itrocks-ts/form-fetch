@@ -18,7 +18,7 @@
 		"fetch",
 		"form"
 	],
-	"license": "LGPL-3.0-or-later",
+	"license": "MIT",
 	"module": "./form-fetch.js",
 	"name": "@itrocks/form-fetch",
 	"repository": "https://github.com/itrocks-ts/form-fetch",
@@ -27,5 +27,5 @@
 	},
 	"type": "module",
 	"types": "./form-fetch.d.ts",
-	"version": "0.0.1"
+	"version": "0.0.2"
 }
