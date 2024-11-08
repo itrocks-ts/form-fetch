@@ -7,7 +7,7 @@
 
 AJAX fetch for HTML form submissions using form DOM data.
 
-## Install
+## Installation
 
 ```bash
 npm install form-fetch
@@ -142,6 +142,7 @@ formFetchSubmit(element, setResponse, init)
     or the [target](https://developer.mozilla.org/docs/Web/HTML/Element/form#target) of the form.
   - **form:**
     The submitted [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
+    <br/><br/>
 - **init:**
   A callback that returns a [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/RequestInit) object
   containing any custom settings to apply to the request.
