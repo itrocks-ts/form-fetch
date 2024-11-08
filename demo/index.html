@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<script type="module">
+		import { formFetchOnSubmit } from '../form-fetch.js'
+		document.querySelectorAll('form').forEach(form => formFetchOnSubmit(form, response => {
+			alert('Response status ' + response.status + "\nLook at your console.")
+			console.log(response)
+		}))
+	</script>
+	<title>form-fetch example</title>
+</head>
+<body>
+
+	<form action="index.html" method="post" enctype="multipart/form-data">
+		<label for="field">Field</label>
+		<input id="field" name="field" value="value here">
+		<br>
+		<label for="file">File</label>
+		<input id="file" name="file" type="file">
+		<br>
+		<input type="Submit">
+	</form>
+
+</body>
+</html>
