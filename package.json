@@ -18,6 +18,7 @@
 		"ajax",
 		"fetch",
 		"form",
+		"it.rocks",
 		"xhr"
 	],
 	"license": "MIT",
@@ -29,5 +30,5 @@
 	},
 	"type": "module",
 	"types": "./form-fetch.d.ts",
-	"version": "0.0.4"
+	"version": "0.0.5"
 }
