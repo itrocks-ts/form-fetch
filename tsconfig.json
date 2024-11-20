@@ -2,12 +2,13 @@
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"declaration": true,
-		"lib": ["DOM"],
+		"lib": ["DOM", "ES2022"],
 		"module": "ESNext",
 		"outDir": "./",
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "ES2022"
+		"target": "ES2022",
+		"types": []
 	},
 	"exclude": [],
 	"include": ["src"]
