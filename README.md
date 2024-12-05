@@ -1,7 +1,8 @@
 [![view on npm](https://badgen.net/npm/v/@itrocks/form-fetch)](https://www.npmjs.org/package/@itrocks/form-fetch)
 [![npm module downloads](https://badgen.net/npm/dt/@itrocks/form-fetch)](https://www.npmjs.org/package/@itrocks/form-fetch)
-[![GitHub repo dependents](https://badgen.net/github/dependents-repo/itrocks-ts/form-fetch)](https://github.com/itrocks-ts/form-fetch/network/dependents?dependent_type=REPOSITORY)
-[![GitHub package dependents](https://badgen.net/github/dependents-pkg/itrocks-ts/form-fetch)](https://github.com/itrocks-ts/form-fetch/network/dependents?dependent_type=PACKAGE)
+[![GitHub repo dependents](https://badgen.net/github/dependents-repo/itrocks-ts/form-fetch?label=dependents)](https://github.com/itrocks-ts/form-fetch/network/dependents?dependent_type=REPOSITORY)
+[![Report issues on GitHub](https://badgen.net/github/open-issues/itrocks-ts/form-fetch?icon=github)](https://github.com/itrocks-ts/form-fetch/issues)
+[![Get support on Discord](https://badgen.net/discord/members/kbMjUq5F?icon=discord)](https://discord.gg/kbMjUq5F)
 
 # form-fetch
 
