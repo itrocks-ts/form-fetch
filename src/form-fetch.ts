@@ -40,5 +40,5 @@ export function formFetchOnSubmit(
 
 export function formMethod(form: HTMLFormElement, init: RequestInit = {})
 {
-	return init.method ??= form.getAttribute('data-method') || form.method
+	return init.method ??= form.dataset.method || form.method
 }
