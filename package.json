@@ -21,7 +21,7 @@
 		"it.rocks",
 		"xhr"
 	],
-	"license": "MIT",
+	"license": "ISC",
 	"module": "./form-fetch.js",
 	"name": "@itrocks/form-fetch",
 	"repository": "https://github.com/itrocks-ts/form-fetch",
@@ -30,5 +30,5 @@
 	},
 	"type": "module",
 	"types": "./form-fetch.d.ts",
-	"version": "0.0.8"
+	"version": "0.0.9"
 }
