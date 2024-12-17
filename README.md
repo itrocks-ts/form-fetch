@@ -1,8 +1,8 @@
-[![view on npm](https://badgen.net/npm/v/@itrocks/form-fetch)](https://www.npmjs.org/package/@itrocks/form-fetch)
-[![npm module downloads](https://badgen.net/npm/dt/@itrocks/form-fetch)](https://www.npmjs.org/package/@itrocks/form-fetch)
-[![GitHub repo dependents](https://badgen.net/github/dependents-repo/itrocks-ts/form-fetch?label=dependents)](https://github.com/itrocks-ts/form-fetch/network/dependents?dependent_type=REPOSITORY)
-[![Report issues on GitHub](https://badgen.net/github/open-issues/itrocks-ts/form-fetch?icon=github)](https://github.com/itrocks-ts/form-fetch/issues)
-[![Get support on Discord](https://badgen.net/discord/members/kbMjUq5F?icon=discord)](https://discord.gg/kbMjUq5F)
+[![npm version](https://img.shields.io/npm/v/@itrocks/form-fetch?logo=npm)](https://www.npmjs.org/package/@itrocks/form-fetch)
+[![npm downloads](https://img.shields.io/npm/dm/@itrocks/form-fetch)](https://www.npmjs.org/package/@itrocks/form-fetch)
+[![GitHub](https://img.shields.io/github/last-commit/itrocks-ts/form-fetch?color=2dba4e&label=commit&logo=github)](https://github.com/itrocks-ts/form-fetch)
+[![issues](https://img.shields.io/github/issues/itrocks-ts/form-fetch)](https://github.com/itrocks-ts/form-fetch/issues)
+[![discord](https://img.shields.io/discord/1314141024020467782?color=7289da&label=discord&logo=discord&logoColor=white)](https://discord.gg/WFPJjmUx)
 
 # form-fetch
 
