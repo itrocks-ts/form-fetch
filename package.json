@@ -14,10 +14,12 @@
 		"form-fetch.d.ts",
 		"form-fetch.js"
 	],
+	"homepage": "https://it.rocks",
 	"keywords": [
 		"ajax",
 		"fetch",
 		"form",
+		"front-end",
 		"it.rocks",
 		"xhr"
 	],
@@ -30,5 +32,5 @@
 	},
 	"type": "module",
 	"types": "./form-fetch.d.ts",
-	"version": "0.0.12"
+	"version": "0.0.13"
 }
