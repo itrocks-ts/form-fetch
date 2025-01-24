@@ -26,11 +26,14 @@
 	"license": "ISC",
 	"module": "./form-fetch.js",
 	"name": "@itrocks/form-fetch",
-	"repository": "https://github.com/itrocks-ts/form-fetch",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/itrocks-ts/form-fetch.git"
+	},
 	"scripts": {
 		"build": "tsc"
 	},
 	"type": "module",
 	"types": "./form-fetch.d.ts",
-	"version": "0.0.13"
+	"version": "0.0.14"
 }
