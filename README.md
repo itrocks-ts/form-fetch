@@ -20,7 +20,7 @@ With an HTML page containing a **button**, a **form**, and a **div** with id **r
 you can [fetch](https://developer.mozilla.org/docs/Web/API/Window/fetch) your form when clicking the button:
 
 ```ts
-import formFetch from './node_modules/@itrocks/form-fetch/form-fetch.js'
+import { formFetch } from './node_modules/@itrocks/form-fetch/form-fetch.js'
 
 document.querySelector('button').addEventListener('click', async () => 
 {
