@@ -1,7 +1,6 @@
 
 export type FormElement = HTMLButtonElement | HTMLFormElement | HTMLInputElement
 
-export default formFetch
 export function formFetch(form: HTMLFormElement, action?: string, init: RequestInit = {})
 {
 	const formData     = new FormData(form)
