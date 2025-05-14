@@ -6,7 +6,7 @@
 	"description": "AJAX fetch for HTML form submissions using form DOM data",
 	"devDependencies": {
 		"@types/node": "^22.9",
-		"typescript": "5.6"
+		"typescript": "~5.8"
 	},
 	"files": [
 		"LICENSE",
@@ -35,5 +35,5 @@
 	},
 	"type": "module",
 	"types": "./form-fetch.d.ts",
-	"version": "0.0.17"
+	"version": "0.0.18"
 }
