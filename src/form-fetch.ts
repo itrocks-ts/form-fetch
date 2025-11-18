@@ -3,18 +3,19 @@ export type FormElement = HTMLButtonElement | HTMLFormElement | HTMLInputElement
 
 export function formFetch(form: HTMLFormElement, action?: string, init: RequestInit = {})
 {
-	const formData     = new FormData(form)
-	const searchParams = new URLSearchParams(formData as any)
-	const url          = new URL(action ?? form.action)
+	const formData = new FormData(form)
+	const url      = new URL(action ?? form.action)
 
 	init.method = formMethod(form, init)
 	if (init.method.toLowerCase() === 'post') {
 		init.body = (form.enctype.toLowerCase() === 'multipart/form-data')
 			? formData
-			: searchParams
+			: new URLSearchParams(formData as any)
 	}
 	else {
-		url.search = searchParams.toString()
+		const formParams = new URLSearchParams(formData as any)
+		const urlParams  = url.search.slice(1)
+		url.search = (urlParams === '' ? '' : (urlParams.toString() + '&')) + formParams.toString()
 	}
 
 	return fetch(url, init)
