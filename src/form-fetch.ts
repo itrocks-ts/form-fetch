@@ -4,9 +4,11 @@ export type FormElement         = HTMLButtonElement | HTMLFormElement | HTMLInpu
 export type InitCallback        = (element: HTMLButtonElement | HTMLInputElement) => RequestInit
 export type SetResponseCallback = (response: Response, targetSelector: string, form: HTMLFormElement) => void
 
-export function formFetch(form: HTMLFormElement, action: string, init: RequestInit = {})
+type Submitter = HTMLButtonElement | HTMLInputElement | null
+
+export function formFetch(form: HTMLFormElement, action: string, init: RequestInit = {}, submitter?: Submitter)
 {
-	const formData = new FormData(form)
+	const formData = new FormData(form, submitter)
 	const url      = new URL(action)
 
 	init.method = formMethod(form, init)
@@ -31,12 +33,12 @@ export function formFetchOnSubmit(
 	if (!form || form.formFetchOnSubmit) return
 	form.formFetchOnSubmit = true
 	form.addEventListener('submit', async event => {
-		const submitter = event.submitter as (HTMLButtonElement | HTMLInputElement | null)
+		const submitter = event.submitter as Submitter
 		event.preventDefault()
 		const action = (submitter?.getAttribute('formaction') ? submitter?.formAction : undefined) ?? form.action
 		const target = submitter?.formTarget || form.target
 		try {
-			const response = await formFetch(form, action, (init && submitter) ? init(submitter) : undefined)
+			const response = await formFetch(form, action, (init && submitter) ? init(submitter) : undefined, submitter)
 			setResponse(response, target, form)
 		}
 		catch (error) {
