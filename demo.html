@@ -3,17 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<script type="module">
-		import { formFetchOnSubmit } from '../form-fetch.js'
-		document.querySelectorAll('form').forEach(form => formFetchOnSubmit(form, response => {
-			alert('Response status ' + response.status + "\nLook at your console.")
+		import { formFetchOnSubmit } from './form-fetch.js'
+		formFetchOnSubmit(document.querySelector('form'), async response => {
+			document.getElementById('result').innerHTML = await response.text()
 			console.log(response)
-		}))
+			alert('Response status ' + response.status + "\nLook at your console.")
+		})
 	</script>
 	<title>form-fetch example</title>
 </head>
 <body>
 
-	<form action="index.html" method="post" enctype="multipart/form-data">
+	<form action="demo.html" method="post" enctype="multipart/form-data">
 		<label for="field">Field</label>
 		<input id="field" name="field" value="value here">
 		<br>
@@ -22,6 +23,7 @@
 		<br>
 		<input type="Submit">
 	</form>
+	<div id="result"></div>
 
 </body>
 </html>

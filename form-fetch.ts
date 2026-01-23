@@ -1,15 +1,15 @@
 
-export type FetchErrorCallback  = (error: any, href: string, target: string) => void
+export type FetchErrorCallback  = (error: any, action: string, target: string) => void
 export type FormElement         = HTMLButtonElement | HTMLFormElement | HTMLInputElement
 export type InitCallback        = (element: HTMLButtonElement | HTMLInputElement) => RequestInit
-export type SetResponseCallback = (response: Response, targetSelector: string, form: HTMLFormElement) => void
+export type SetResponseCallback = (response: Response, target: string, form: HTMLFormElement) => void
 
 type Submitter = HTMLButtonElement | HTMLInputElement | null
 
-export function formFetch(form: HTMLFormElement, action: string, init: RequestInit = {}, submitter?: Submitter)
+export function formFetch(form: HTMLFormElement, action?: string, init: RequestInit = {}, submitter?: Submitter)
 {
 	const formData = new FormData(form, submitter)
-	const url      = new URL(action)
+	const url      = new URL(action ?? form.action)
 
 	init.method = formMethod(form, init)
 	if (init.method.toLowerCase() === 'post') {

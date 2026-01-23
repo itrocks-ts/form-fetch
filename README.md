@@ -11,7 +11,7 @@ AJAX fetch for HTML form submissions using form DOM data.
 ## Installation
 
 ```bash
-npm install form-fetch
+npm install @itrocks/form-fetch
 ```
 
 ## Usage
@@ -20,12 +20,12 @@ With an HTML page containing a **button**, a **form**, and a **div** with id **r
 you can [fetch](https://developer.mozilla.org/docs/Web/API/Window/fetch) your form when clicking the button:
 
 ```ts
-import { formFetch } from './node_modules/@itrocks/form-fetch/form-fetch.js'
+import { formFetch } from '@itrocks/form-fetch/form-fetch.js'
 
 document.querySelector('button').addEventListener('click', async () => 
 {
 	const htmlResponse = await formFetch(document.querySelector('form')).text()
-	document.getElementById('#result').innerHTML = htmlResponse
+	document.getElementById('result').innerHTML = htmlResponse
 })
 ```
 
@@ -33,20 +33,20 @@ Alternatively, add a submit event listener to the form
 to trigger a [fetch](https://developer.mozilla.org/docs/Web/API/Window/fetch) instead of a standard submission:
 
 ```ts
-import { formFetchOnSubmit } from './node_modules/@itrocks/form-fetch/form-fetch.js'
+import { formFetchOnSubmit } from '@itrocks/form-fetch/form-fetch.js'
 
-document.addEventListener('load', () => {
-	formFetchOnSubmit(document.querySelector('form'), response => {
-		document.getElementById('#result').innerHTML = htmlResponse
+window.addEventListener('load', () => {
+	formFetchOnSubmit(document.querySelector('form'), async response => {
+		document.getElementById('result').innerHTML = await response.text()
   })
 })
 ```
 
-For a streamlined approach, use [xtarget](https://www.npmjs.org/package/@itrocks/xtarget)
-and [build](https://www.npmjs.org/package/@itrocks/build) to automate `form-fetch`:
+For a streamlined approach, use [xtarget](https://github.com/itrocks-ts/xtarget)
+and [build](https://github.com/itrocks-ts/target) to automate `form-fetch`:
 
 ```ts
-import { buildXTarget } from './node_modules/@itrocks/xtarget/xtarget.js'
+import { buildXTarget } from '@itrocks/xtarget/xtarget.js'
 buildXTarget()
 ```
 
@@ -89,7 +89,7 @@ response = formFetch(form, action)
 response = formFetch(form, action, init)
 ```
 
-#### Parameters
+**Parameters:**
 
 - **form:**
   An [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement)
@@ -105,13 +105,13 @@ response = formFetch(form, action, init)
   that resolves to a [Response](https://developer.mozilla.org/docs/Web/API/Response) object,
   as returned by the call to [fetch()](https://developer.mozilla.org/docs/Web/API/Window/fetch).
 
-#### Example
+**Example:**
 
 ```ts
 document.querySelectorAll('form').forEach(form => {
 	formFetch(form)
 		.then(response => response.text())
-		.then(html => document.getElementById('#result').append(html))
+		.then(html => document.getElementById('result').append(html))
 })
 ```
 
@@ -122,31 +122,46 @@ Attaches a [submit](https://developer.mozilla.org/docs/Web/API/HTMLFormElement/s
 to [fetch](https://developer.mozilla.org/docs/Web/API/Window/fetch) instead of submit.
 
 ```ts
-formFetchSubmit(element, setResponse)
-formFetchSubmit(element, setResponse, init)
+formFetchOnSubmit(element, setResponse)
+formFetchOnSubmit(element, setResponse, init)
+formFetchOnSubmit(element, setResponse, init, onError)
 ```
 
-#### Parameters
+**Parameters:**
 
 - **element:**
   A [FormElement](#FormElement) (form, button, or input).
+  Passing a button or input allows intercepting submission without direct access to the form element.
 - **setResponse:**
   A callback handling the [Response](https://developer.mozilla.org/docs/Web/API/Response):
   ```ts
-  setResponse(response, targetSelector, form)
+  function(response: Response, target: string, form: HTMLFormElement): void
   ```
   - **response:**
     The retrieved [Response](https://developer.mozilla.org/docs/Web/API/Response).
-  - **targetSelector:**
-    The selector for the target where the form response should be displayed,
+  - **target:**
+    The target string where the form response should be displayed,
     determined by the [formtarget](https://developer.mozilla.org/docs/Web/HTML/Element/input#formtarget) of the submitter
     or the [target](https://developer.mozilla.org/docs/Web/HTML/Element/form#target) of the form.
   - **form:**
-    The submitted [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
-    <br/><br/>
+    The submitted [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).\
+    <br>
 - **init:**
   A callback that returns a [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/RequestInit) object
   containing any custom settings to apply to the request.
+- **onError:**
+  A callback that handles errors during the form submission process.
+  ```ts
+  function(error: any, action: string, target: string): void
+  ```
+  - **error:**
+    The thrown error.
+  - **action:**
+    The URL of the form submission.
+  - **target:**
+    The target string where the form response should be displayed,
+    determined by the [formtarget](https://developer.mozilla.org/docs/Web/HTML/Element/input#formtarget) of the submitter
+    or the [target](https://developer.mozilla.org/docs/Web/HTML/Element/form#target) of the form.
 
 ### formMethod()
 
@@ -158,7 +173,7 @@ method = formMethod(form)
 method = formMethod(form, init)
 ```
 
-#### Parameters
+**Parameters:**
 
 - **form:**
   A [HTMLFormElement](https://developer.mozilla.org/docs/Web/API/HTMLFormElement).
